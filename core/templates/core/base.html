@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+
+{% load pwa %}
+
+<head>
+    {% progressive_web_app_meta %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MisPerris</title>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'core/CSS/estilos.CSS' %}">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <script src="{% static 'core/js/inicializacion.js' %}"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/validacion.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-messaging.js"></script>
+
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyC52ltpfVKkjkfZLESLYfUEGeUDaUYW2Hw",
+            authDomain: "mis-perris-d8868.firebaseapp.com",
+            databaseURL: "https://mis-perris-d8868.firebaseio.com",
+            projectId: "mis-perris-d8868",
+            storageBucket: "mis-perris-d8868.appspot.com",
+            messagingSenderId: "771089628780"
+        };
+        firebase.initializeApp(config);
+
+        var messaging = firebase.messaging();
+
+        //registrar el serviceworking
+        navigator
+            .serviceWorker
+            .register('./serviceworker.js')
+            .then(function (register) {
+                // le pasamos a firebase el objeto register par que el pueda autilizar el service worker
+                messaging.useServiceWorker(register);
+                //le pedimos permisos al usuario para recibir notificaciones
+                messaging.requestPermission()
+                    .then(function () {
+
+                        console.log("el usuario ha aceptado recibir notificaciones")
+
+                        return messaging.getToken();
+                    })
+                    .then(function (token) {
+
+                        console.log(token)
+                        //enviamos el token hacia django para ser almacenado
+                        //el JSON.stringify convierte un json en string
+                        fetch('api/crear-token/', {
+                            method: 'POST',
+                            body: JSON.stringify({
+                                'token': token
+                            })
+                        })
+                            .then(function () {
+                                console.log("token enviado")
+                            })
+                    })
+                    .catch(function (error) {
+                        console.log("El usuario no ha aceptado" + error)
+                    })
+            })
+
+        messaging.onMessage(function (playload) {
+
+            //tenemos que obtener los datos desde el payload que corresponde
+            //a la notificación
+            var title = playload.notification.title
+            var options = {
+                body: playload.notification.body,
+                icon: playload.notification.icon
+            }
+
+            //Mostramos la notifiacion al usuario
+            var mensaje = new Notification(title, options)
+        })
+    </script>
+</head>
+
+<body>
+    <header>
+
+        <a href="/">
+            <img class="logo" src="{% static 'core/img/logo.png' %}" alt="logo">
+        </a>
+
+        <ul class="navegacion">
+            <li><a href="/">Inicio</a></li>
+            <li><a href="#">Quienes somos</a></li>
+            <li><a href="#">Servicios</a></li>
+            <li><a href="#">Contáctanos</a></li>
+
+            {% if request.user.is_authenticated %}
+            <li>
+                <a href="{% url 'formulario_mascota' %}">Registrar Mascota</a>
+            </li>
+
+            <li>
+                <a href="{% url 'listar_mascota' %}">Listado de Mascotas</a>
+            </li>
+
+            <li>
+                <a href="{% url 'logout' %}">Cerrar sesión</a>
+            </li>
+
+            <li>
+                <a href="">{{ request.user.first_name }}</a>
+            </li>
+
+
+            {% else %}
+            <li>
+                <a href="{% url 'login' %}">Iniciar Sesión</a>
+            </li>
+
+            {% endif %}
+        </ul>
+    </header>
+
+
+    {% block contenido %}
+
+    {% endblock contenido %}
+
+    <footer>
+        <div class="contenidoFooter">
+            <br>
+            <h2>Mis Perris</h2>
+            <hr>
+            <h3 class="texto">Desarrollo Web y Mobile</h3>
+            <h3>2018</h3>
+        </div>
+    </footer>
+
+</body>
+
+</html>

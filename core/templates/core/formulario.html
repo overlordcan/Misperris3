@@ -1,0 +1,76 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+
+<div class="Formulario">
+    
+    <form action="" method="POST" id="formularioadopcion">
+        
+        {% csrf_token %}
+        <br>
+        <h1>Registro de usuario</h1>
+        <label for="">Correo Electronico</label>
+        <input type="text" class="form-control" name="txtCorreo" id="txtCorreo">
+        <br>
+
+        <label for="">Run</label>
+        <input type="text" class="form-control" name="txtRun" id="txtRun">
+        <br>
+
+        <label for="">Nombre Completo</label>
+        <input type="text" class="form-control" name="txtNombre" id="txtNombre">
+        <br>
+
+        <label for="">Fecha de Nacimiento</label>
+        <input type="date" class="form-control" name="txtFechaNacimiento" id="txtFechaNacimiento">
+        <br>
+
+        <label for="">Telefono de contacto</label>
+        <input type="int" class="form-control" name="txtTelefono" id="txtTelefono">
+        <br>
+
+            <label for="">Región</label>
+            <select  class="form-control" name="cboRegion" id="cboRegion">
+            <option value="">Seleccionar</option>
+            {% for r in region %}
+                <option value="{{ r.id }}">{{ r.nombre }}</option>
+            {% endfor %}
+        
+            </select>
+
+        <br>
+
+            <label for="">Ciudad</label>
+            <select  class="form-control" name="cboCiudad" id="cboCiudad">
+            <option value="">Seleccionar</option>
+            {% for c in ciudad %}
+                <option value="{{ c.id }}">{{ c.nombre }}</option>
+            {% endfor %}
+        
+        </select>
+        <br>
+
+        <label for="">Tipo de vivienda</label>
+        <select  class="form-control" name="cboVivienda" id="cboVivienda" >
+            <option value="">Seleccionar</option>
+            
+            {% for v in vivienda %}
+            <option value="{{ v.id }}">{{ v.nombre }}</option>
+            {% endfor %}
+    
+        </select>
+            <br>
+            <br>
+            <input type="submit" class="botones" value="Guardar" id="btnGuardar" name="btnGuardar">
+            <br><br>
+
+
+    
+    </form>
+    <h3>{{ mensaje }}</h3>
+
+</div>
+
+{% endblock contenido %}

@@ -1,0 +1,113 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+<div class="landing">
+    <div class="slider">
+        <div>
+            <img class="imagen_landing" src="{% static 'core/img/perro.png' %}" alt="Perro">
+        </div>
+
+        <div>
+            <img class="imagen_landing" src="{% static 'core/img/Apolo.jpg' %}" alt="perro apolo">
+        </div>
+                
+        <div>
+            <img class="imagen_landing" src="{% static 'core/img/Duque.jpg' %}" alt="perro duque">
+        </div>
+                
+        <div>
+            <img class="imagen_landing" src="{% static 'core/img/Tom.jpg' %}" alt="perro_tom">
+        </div>
+    </div>
+
+    <div class="landing_inferior">
+    
+        <h1 class="telefono">+56 9 98765431</h1>
+        <h1 class="eslogan">Rescate y adopción de perros callejeros</h1>
+
+        <ul class="redes_sociales">
+            <li>
+                <a href="https://www.facebook.com/">
+                    <img src="{% static 'core/img/facebook.png' %}" alt="facebook">
+                </a>
+            </li>
+
+            <li>
+                <a href="https://www.google.cl/">
+                    <img src="{% static 'core/img/google.png' %}" alt="google">
+                </a>
+            </li>
+
+            <li>
+                <a href="http://www.instagram.com">
+                    <img src="{% static 'core/img/instagram.png' %}" alt="instagram">
+                </a>
+            </li>
+            <li>
+                <a href="http://www.gmail.com">
+                    <img src="{% static 'core/img/correo.png' %}" alt="correo">
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="contenido">
+    <div class="columna_recate_padre">
+
+        <div class="columna_rescate">
+                
+            <h1 class=>RESCATE</h1>
+            <h3 class="sub_titulo">ETAPA UNO</h3>
+            <h2>____</h2>
+            <br>
+            
+            <p class="parrafo">Rescatamos perros en situación de peligro y/o abandono. Los rehabilitamos y los
+                preparamos para buscarles un hogar.
+            </p>
+            
+            <br>
+            <img class="img_rescate" src="{% static 'core/img/rescate.jpg' %}" alt="rescate">
+        </div>
+    </div>
+            
+
+    <div class="columna_crow_padre">
+        <div class="columna_crowdfunding">
+            <img class="img_crowdfunding" src="{% static 'core/img/crowfunding.jpg' %}" alt="crowdfunding">
+            <h1>CROWDFUNDING</h1>
+                <h3 class="sub_titulo">FINANCIAMIENTO</h3>
+            <h2>____</h2>
+            <br>
+            <p class="parrafo">Sigue nuestras redes sociales para informarte hacera de las diversas campañas y
+                actividades que realizamos para obtener financiamiento para seguir ayudando
+            </p>
+            <br>
+            <button class="btn_campaña">
+                    CAMPAÑAS
+            </button>
+            
+            <button class="btn_formulario">
+                <a href="/formulario">
+                     FORMULARIO
+                </a>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="contenidoGaleria" >
+    <div class="galeria">
+        <a data-fancybox="gallery" href={% static 'core/img/Oso.jpg'%}><img src="{% static 'core/img/Oso.jpg' %}"></a>
+        <a data-fancybox="gallery" href={% static 'core/img/Maya.jpg'%}><img src="{% static 'core/img/Maya.jpg' %}"></a>
+        <a data-fancybox="gallery" href={% static 'core/img/Wifi.jpg'%}><img src="{% static 'core/img/Wifi.jpg' %}"></a> 
+        <a data-fancybox="gallery" href={% static 'core/img/Chocolate.jpg'%}><img class="perro_4" src="{% static 'core/img/Chocolate.jpg' %}"></a>
+        <a data-fancybox="gallery" href={% static 'core/img/Pexel.jpg'%}><img class="perro_5" src="{% static 'core/img/Pexel.jpg' %}"></a>
+        <a data-fancybox="gallery" href={% static 'core/img/Bigotes.jpg'%}><img src="{% static 'core/img/Bigotes.jpg' %}"></a>
+        <a data-fancybox="gallery" href={% static 'core/img/Luna.jpg'%}><img class="perro_6" src="{% static 'core/img/Luna.jpg' %}"></a>
+    </div>
+</div>
+
+{% endblock contenido %}

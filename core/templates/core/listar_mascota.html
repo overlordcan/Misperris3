@@ -1,0 +1,69 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block contenido %} 
+
+
+
+<div class="contenidoListar">
+    
+    <img class="icono_perro" src="{% static 'core/img/img_perro.gif'%}" alt="img_perro">  
+    
+    <table class="tabla">
+         
+        <tr>
+            <th>Nombre </th>
+            <th>Raza </th>
+            <th>Genero </th>
+            <th>Fecha nacimiento </th>
+            <th>Fecha ingreso </th>
+            <th>Estado </th>
+            <th>Opciones </th>
+
+        </tr>
+
+        {% for m in mascota  %}
+        <tr>
+            <td>{{ m.nombre }}</td>
+            <td>{{ m.raza.nombre }}</td>
+            <td>{{ m.genero }}</td>
+            <td>{{ m.fecha_nacimiento }}</td>
+            <td>{{ m.fecha_ingreso }}</td>
+            <td>{{ m.estado.nombre }}</td>
+            <td>
+                <button class="botones">
+                    <a href="{% url 'eliminar_mascota' m.id %}">
+                        Eliminar
+                    </a>
+                </button>
+
+                <button class="botones">
+                    <a href="{% url 'modificar_mascota' m.id %}">
+                        Modificar
+                    </a>
+                </button>
+
+
+            </td>
+        </tr>
+
+        {% endfor %}
+    </table>
+
+
+
+    {% if messages %}
+
+        {% for m in messages %}
+
+        <div>{{ m }}</div>
+        
+        {% endfor %}
+
+    {% endif %}
+
+</div>
+
+{% endblock contenido %}
+

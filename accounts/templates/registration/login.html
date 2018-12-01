@@ -1,0 +1,35 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+
+
+<div class="contenedor_login">
+
+    <div class="login">
+
+        <form action="" method="post">
+            <img class="icono-login" src="{% static 'core/img/icono-login.png' %}" alt="icono-login">
+
+            {% csrf_token %}
+
+            <table>
+                {{ form.as_table }}
+            </table>
+
+            <input class="botones" type="submit" value="Iniciar Sesión">
+
+            <hr>
+        
+            <a class="login_facebook" href="{% url 'social:begin' 'facebook' %}">Iniciar Sesión con Facebook</a>
+        
+            
+        </form>
+
+    </div>
+
+
+</div>
+
+{% endblock contenido %}

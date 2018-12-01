@@ -1,0 +1,578 @@
+*{
+    margin: 0;
+    padding:0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header{
+    width: 100%;
+    height: 80px;
+    background-color: rgb(133, 212, 183);
+}
+
+.logo {
+    width: 320px;
+    height: 60px;
+    margin-top: 10px;
+    margin-left: 20px;
+    float: left;
+    display: flex;
+}
+.navegacion {
+    text-align: center;
+    margin-right: 150px;
+}
+
+.navegacion li {
+    display: inline-block;
+    margin-right: 20px;
+    font-size: 12px;
+    padding-top: 35px;
+}
+
+.navegacion li a{
+    color: white;
+    text-decoration: none;
+    padding-top: 15px;
+    font-weight: bold;
+}
+
+.navegacion li a:hover {
+    color: rgb(6, 69, 94);
+    text-decoration: none;
+    padding-top: 15px;
+
+
+}
+.landing {
+    width: 100%;
+    height: 710px;
+    background-color: rgb(109, 204, 170);
+}
+
+.bx-wrapper{
+    background-color: rgb(109, 204, 170) !important; /* important: Es para que no se subcriban los datos*/
+    border: none !important;
+    box-shadow: none !important;
+    }
+
+.slider {
+    height: 500px;
+    width: 100%;
+}
+
+.imagen_landing{
+    height: 500px;
+    width: 100%; 
+}
+
+.imagen_perro {
+    width: 750px;
+    height: 300px;
+    margin:auto;
+    display: block;
+    padding-top: 40px;
+}
+.eslogan {
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px;
+    margin-left: 100px;
+}
+.telefono {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 7px;
+}
+
+.redes_sociales {
+    float: right;
+}
+.redes_sociales li {
+    display:inline-block;
+    margin-right:20px;
+}
+
+.redes_sociales li img {
+    width: 40px;
+    height:40px;
+}
+
+.redes_sociales li img:hover {
+    opacity: 0.4;
+}
+
+.landing_inferior {
+    padding: 70px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: -60px;
+}
+
+.contenido {
+    padding: 15px;
+    display: flex;
+}
+
+.contenido  > div{
+    width: 50%;
+    padding: 30px;
+}
+
+.columna_rescate {
+    justify-content: right;
+    flex-direction: column;
+    text-align: right;
+}
+
+.sub_titulo {
+    font-size: 15px;
+    color: grey;
+    font-style: unset;
+}
+
+.parrafo {
+    font-size: 15px;
+    line-height: 2.0em;
+}
+
+.img_rescate {
+    width: 350px;
+    height:196px;
+    display: flex;
+    margin-left: 250px;
+}
+
+.img_crowdfunding {
+    width: 370px;
+    height:294px;
+    display: flex;
+}
+
+.btn_campaña {
+   
+    border: 2px solid black;
+    height: 40px;
+    width: 100px;
+    background: white;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.btn_campaña:hover {
+    background: lightseagreen;
+    color: white;
+}
+
+.btn_formulario {
+   
+    border: 2px solid black;
+    height: 40px;
+    width: 120px;
+    background: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.btn_formulario a {
+    text-decoration: none;
+}
+
+.btn_formulario:hover {
+    background: lightseagreen;
+    color: white;
+}
+
+.galeria {
+    padding: 10px;
+    columns: 3;
+    margin-left: 100px;
+}
+
+.galeria img{
+    width: 300px;
+    object-fit: cover;
+    height: auto;
+}
+.contenidoGaleria{
+    width: 100%;
+    height: 650px;
+    background-color: rgb(109, 204, 170); 
+}   
+    .perro_4{
+    height: 310px!important;
+    
+    }
+    
+    .perro_5{
+    height: 313px!important;
+    }
+    
+    .perro_6{
+    height: 257px !important;
+    }
+
+footer {
+    height: 60px;
+    background-color: #cac7c7;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    font-size: 8px;
+    text-align: center;
+    
+}
+
+
+.Formulario{
+    display: flex;
+    justify-content: center;
+    background: lightseagreen;
+    color: #fff;
+    line-height: 50px;
+    height: 650px;
+
+}
+
+.mascotaForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: lightseagreen;
+    color: #fff;
+    line-height: 50px;
+    height: 120vh; /* ocupa el 100% del viewport*/
+    
+}
+
+.icono_perro{
+    width: 200px;
+    height: 200px;
+    margin-left: 80px;
+    
+}
+
+
+.contenedor_login{
+    display: flex;
+    justify-content: center;
+    background: lightseagreen;
+    color: #fff;
+    line-height: 50px;
+    height: 487px;
+    
+}
+
+.contenidoListar{
+    
+    justify-content: center;
+    align-items: center;
+    background: lightseagreen;
+    color: #fff;
+    line-height: 50px;
+    height: 120vh; /* ocupa el 100% del viewport*/
+    display: grid;
+    grid-auto-rows: 240px;
+    
+    
+}
+
+.contenidoListar img{
+    margin-top: 80px;
+    margin-left: 350px;
+}
+
+.tabla{
+    margin-top: 150px;
+}
+
+.login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botones{
+   
+    height: 40px;
+    width: 120px;
+    background: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-left: 70px;
+
+}
+
+.botones a{
+    text-decoration: none;
+}
+
+.botones:hover{
+    background:  rgb(109, 204, 170);
+    color: white;
+}
+
+.icono-login{
+    margin-left: 60px;
+    
+}
+
+.contenido_modificar {
+    justify-content: center;
+    align-items: center;
+    background: lightseagreen;
+    color: #fff;
+    line-height: 50px;
+    height: 120vh; /* ocupa el 100% del viewport*/
+    display: flex;
+    
+
+}
+
+
+
+@media (max-width:1024px) {
+
+    header {
+        height: 390px;
+
+    }
+
+    .logo {
+        width: auto;
+        margin-bottom: 10px;
+        margin-left: 20%;
+    }
+
+    .navegacion {
+        width: 100%;
+        height: 150px;
+        margin:auto;
+        
+    }
+ 
+    .navegacion li {
+        width: 100%;
+        height: 40px;;
+        text-align: center;
+        background-color: rgb(109, 204, 170);
+        display: inline-block;
+        margin-top: 2px;
+        font-size: 16px;
+        margin-right:0px;
+    }
+
+ 
+    .landing {
+        margin-top: 75px;
+        height: 500px;
+        width: 100%;
+    }
+
+    .imagen_perro {
+        width: 100%;
+        height: auto;
+    }
+
+    .redes_sociales {
+        float: none;
+        align-items: center;
+        display:inline-block;
+    }
+
+    .landing_inferior {
+        justify-content: center;
+        margin-left:0;
+        flex-direction: row;
+        padding: 30px;
+    }
+    
+
+    .telefono {
+        display: none;
+    }
+
+    .eslogan {
+        display: none;
+    }
+
+    .contenido {
+        flex-wrap: wrap;
+        height: auto;
+        width: 100%;
+        padding:0px;
+    }
+
+    .contenido >div {
+        width: 100%;
+        padding: 0px;
+        margin-top: 20px;
+    }
+    
+    .columna_rescate {
+        width: 100%;
+        
+    }
+
+    .columna_recate_padre {
+        display: flex;
+        justify-content: right;
+        margin-right: 10px;
+    }
+
+    .img_rescate {
+        display: flex;
+        padding: 0px;
+        float: right;
+    }
+
+    .imagen_landing{
+        height:300px;
+        width: 100%; 
+    }
+
+    .slider {
+        height: 300px;
+        width: 100%;
+        
+    }
+
+    .img_crowdfunding {
+        display: flex;
+        padding: 0px;
+        float: left;
+    }
+
+    .columna_crow_padre {
+        display: flex;
+        justify-content: left;
+        margin-left: 10px;
+        margin-bottom: 20px;
+    }
+        
+    .perro_4{
+        height: 310px!important;
+    }
+        
+    .perro_5{
+        height: 315px!important;
+    }
+        
+    .perro_6{
+        height: 260px !important;
+    }
+
+    .contenidoGaleria{
+        width: 100%;
+        height: 650px;
+        background-color: rgb(109, 204, 170); 
+    }
+
+    footer {
+        width: 100%;
+    }
+
+    .Formulario{
+        margin-top: 70px;
+    }
+  
+    .galeria {
+        padding: 10px;
+        columns: 3;
+        margin-left: 15px;
+    }
+    
+    .mascotaForm{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: lightseagreen;
+        color: #fff;
+        line-height: 50px;
+        height: 120vh; /* ocupa el 100% del viewport*/
+        
+    }
+
+    
+    .icono_perro{
+    margin-top: 70px;
+
+    }
+
+    .contenidoListar{
+    
+        justify-content: center;
+        align-items: center;
+        background: lightseagreen;
+        color: #fff;
+        line-height: 50px;
+        height: 120vh; /* ocupa el 100% del viewport*/
+        display: grid;
+        grid-auto-rows: 350px;
+        margin-top: 200px;
+    }
+
+    .contenedor_login{
+        display: flex;
+        justify-content: center;
+        background: lightseagreen;
+        color: #fff;
+        line-height: 50px;
+        height: 800px;
+        
+    }
+
+    .login_facebook{
+        color: #fff;
+        text-align: center;
+
+    }
+
+    .login{
+        display: flex;
+        justify-content: center;
+        align-items: center;   
+        margin-top: 300px;
+    }
+
+    .bx-wrapper{
+        margin-top: 250px;
+    }
+
+    .mascotaForm{
+        margin-top: 300px;
+    }
+
+ 
+
+    .tabla{
+        margin-top: 800px;
+        width: 90%;
+    }
+
+    .contenidoListar{
+    
+        justify-content: center;
+        align-items: center;
+        background: lightseagreen;
+        color: #fff;
+        line-height: 50px;
+        height: 200vh; /* ocupa el 100% del viewport*/
+        display: grid;
+        grid-auto-rows: 240px;
+        
+        
+    }
+ 
+    .contenidoListar img{
+        margin-top: 400px;
+        margin-left: 250px;
+    }
+}
+

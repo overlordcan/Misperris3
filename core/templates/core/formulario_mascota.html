@@ -1,0 +1,68 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+
+<div class="mascotaForm">
+
+<form action="" id="registroFor" method="POST">
+
+
+    {% csrf_token %}
+    <img class="icono_perro" src="{% static 'core/img/img_perro.gif'%}" alt="img_perro">
+    <br>   
+        <label for="">Ingrese Nombre de Mascota</label>
+        <input type="text" name="txtNombreMascota" id="txtNombreMascota" required onkeypress="return soloLetras(event)"/>
+        <br>
+        <label for="">Raza</label>
+        <select name="cboRaza" id="cboRaza">
+
+            <option value="">Seleccionar</option>
+            {% for e in raza %}
+
+                <option value="{{ e.id }}">{{ e.nombre }}</option>
+
+            {% endfor %}
+
+        </select>        
+        <br>
+        <label for="">Ingrese Genero de Mascota</label>
+        <input type="text" name="txtGenero" id="txtGenero"  onkeypress="return sololetras(event)" required />
+        <br>
+        <label for="">Fecha Ingreso:</label> 
+        <input type="date" name="dtFechaIng" id="dtFechaIng"
+         placeholder="Fecha Ingreso"  required
+          min="1980-01-01" />
+        <br>
+        
+        <label for="">Fecha Nacimiento</label>
+        <input type="date" name="dtFechaNac" id="dtFechaNac" 
+         placeholder="Fecha Nacimiento" 
+         min="1990-01-01" />
+        <br>
+        <label for="">Descripcion</label>
+        <input type="text" name="txtDescripcion" id="txtDescripcion">     
+        <br>
+        <label for="">Estado</label>
+        <select name="cboEstado" id="cboEstado">
+
+            <option value="">Seleccionar</option>
+            {% for e in estado %}
+
+                <option value="{{ e.id }}">{{ e.nombre }}</option>
+
+            {% endfor %}
+
+        </select>        
+        <br>    
+        <input class="botones" type="submit" class="button" value="Guardar" id="btnGuardar" name="btnGuardar">
+        
+    </form>
+    </div>
+
+    <h3>{{ mensaje }}</h3>
+
+
+
+{% endblock contenido %}
